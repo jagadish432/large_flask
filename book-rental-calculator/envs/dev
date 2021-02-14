@@ -1,0 +1,5 @@
+FLASK_SECRET_KEY=ILovePython-this-is-a-secret-key
+FLASK_ENV=dev
+FLASK_DEBUG=true
+CURRENCY=INR
+DATABASE_NAME=book-rental-db.db

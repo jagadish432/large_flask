@@ -1,0 +1,6 @@
+__pycache__/
+flask-chat
+.idea/
+.coverage
+venv/
+virenv/

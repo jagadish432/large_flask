@@ -1,0 +1,23 @@
+{
+    "regular": {
+        "charge": 1.5,
+        "minimumCharge": 2.0,
+        "minimumRetention": 2,
+        "trialCharge": 1.0,
+        "trialPeriod": 2
+    },
+    "fiction": {
+        "charge": 3.0,
+        "minimumCharge": null,
+        "minimumRetention": null,
+        "trialCharge": null,
+        "trialPeriod": null
+    },
+    "novel": {
+        "charge": 1.5,
+        "minimumCharge": 4.5,
+        "minimumRetention": 3,
+        "trialCharge": null,
+        "trialPeriod": null
+    }
+}

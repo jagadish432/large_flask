@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Book Rental Calculator</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='icons/rent-favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<nav class="navbar navbar-inverse"> <!--navbar-light static-top-->
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Welcome to Book Rental Calculator page</a>
+        </div>
+        <div id="myDiv">
+            <ul class="nav navbar-nav">
+                <li class="active nav-item yo">
+                    <a class="nav-ink" href="#">Home</a>
+                </li>
+                <li class="nav-item yo">
+                    <a class="nav-link" href="#about"> About us <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<div class="statement">
+     <div class="container">
+        {% for category,message in get_flashed_messages(with_categories=true) %}
+        <div class="alert alert-{{ category }}" role="alert"> {{ message }}</div>
+        {% endfor %}
+    </div>
+    <div><p> Hello, Please find the rental statement to pay for the books details you have provided. </p></div>
+    <div><p> Please pay the amount: <b>{{ currency }} {{ amount }}</b></p></div>
+    <form action="/" method="post">
+        <button name="homeBtn" type="submit" class="btn btn-success">Go Home</button>
+    </form>
+
+</div>
+
+<br/>
+<hr>
+
+<div id="about" class="sub_div">
+    <hr/>
+    <p> This is just a sample page to calculate rental bills for books taken (entered using the UI
+        fields).
+    </p>
+</div>
+<div class="footer">
+    <p>Copyrights <i class="fa fa-copyright" style="font-size:12px"></i> by jagadish dachepalli</p>
+</div>
+<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Book Rental Calculator</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='icons/rent-favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<nav class="navbar navbar-inverse"> <!--navbar-light static-top-->
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Welcome to Book Rental Calculator page</a>
+        </div>
+        <div id="myDiv">
+            <ul class="nav navbar-nav">
+                <li class="active nav-item yo">
+                    <a class="nav-ink" href="#">Home</a>
+                </li>
+                <li class="nav-item yo">
+                    <a class="nav-link" href="#about"> About us <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<div class="input_books">
+    <div class="container">
+        {% for category,message in get_flashed_messages(with_categories=true) %}
+        <div class="alert alert-{{ category }}" role="alert"> {{ message }}</div>
+        {% endfor %}
+    </div>
+    <p> Hey, Welcome to Book Rental Calculator page.</p>
+
+    <ul id="myBooks" class="list-unstyled">
+        <li class="booksList" style="height: 40px">
+            <div class="book container-fluid">
+                <div style="float:left; margin-right: 5px;"> Select book type:
+                    <select id="bookType" name="bookType" class="bookType btn btn-primary ">
+                        <!--{% for name in bookTypes %}-->
+                        <!--<option value={{ name }}>{{ name }}</option>-->
+                        <!--{% endfor %}-->
+                        <option value="regular">Regular</option>
+                        <option value="fiction">Fiction</option>
+                        <option value="novel">Novel</option>
+                    </select>
+                </div>
+                <div style="float:left; margin-left: 10px;">
+                    Enter quantity: <input type="number" id="booksQuantity" class="bookQuantity"
+                                           name="booksQuantity"
+                                           min="1" minlength="1"
+                                           onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"/>
+                </div>
+                <div style="float:left; margin-left: 10px;">
+                    Enter duration(in days):
+                    <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip"
+                          title="round the duration to the next nearest day i.e., duration should be 2 if the number of hours is >24 and <=48 hours"> </span>
+                    <input type="number" id="dayDuration" class="dayDuration" name="dayDuration"
+                           min="1" minlength="1"
+                           onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"/>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div style="float:left; margin-left: 10px;">
+        <button type="button" class="btn btn-default btn-sm" id="plus">
+            <span class="glyphicon glyphicon-plus"></span> Plus
+        </button>
+    </div>
+    <br/>
+    <br/>
+    <div class="form-row">
+        <div class="col-sm-3">
+            <button type="button" onClick="mysubmit()" id="submit" class="btn btn-block btn-lg btn-primary"> Submit
+            </button>
+        </div>
+    </div>
+    <!--</form>-->
+
+</div>
+
+<br/>
+<hr>
+
+<div id="about" class="sub_div">
+    <hr/>
+    <p> This is just a sample page to calculate rental bills for books taken (entered using the UI
+        fields).
+    </p>
+</div>
+<div class="footer">
+    <p>Copyrights <i class="fa fa-copyright" style="font-size:12px"></i> by jagadish dachepalli</p>
+</div>
+<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+</html>
